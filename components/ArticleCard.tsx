@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Article } from '../types';
+import { Article } from '../types.ts';
 import { useNavigate } from 'react-router-dom';
 
 interface ArticleCardProps {

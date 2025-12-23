@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { chatWithAssistant } from '../services/geminiService';
-import { ChatMessage } from '../types';
+import { chatWithAssistant } from '../services/geminiService.ts';
+import { ChatMessage } from '../types.ts';
 
 const AIChatPanel: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([

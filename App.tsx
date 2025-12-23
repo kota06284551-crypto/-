@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { HashRouter, Routes, Route, useNavigate, useParams } from 'react-router-dom';
-import Layout from './components/Layout';
-import ArticleCard from './components/ArticleCard';
-import AIChatPanel from './components/AIChatPanel';
-import { MOCK_ARTICLES, CATEGORIES } from './constants';
-import { getAIPicks } from './services/geminiService';
-import { Article } from './types';
+import Layout from './components/Layout.tsx';
+import ArticleCard from './components/ArticleCard.tsx';
+import AIChatPanel from './components/AIChatPanel.tsx';
+import { MOCK_ARTICLES, CATEGORIES } from './constants.tsx';
+import { getAIPicks } from './services/geminiService.ts';
+import { Article } from './types.ts';
 
 // Home Component
 const Home: React.FC<{ articles: Article[] }> = ({ articles }) => {

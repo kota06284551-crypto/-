@@ -1,7 +1,8 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// ガイドラインに従い、process.env.API_KEY を直接使用して初期化
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getGameSummary = async (gameName: string) => {
   try {
@@ -62,6 +63,7 @@ export const getAIPicks = async () => {
     });
     return JSON.parse(response.text);
   } catch (error) {
+    console.error("AI Picks Error:", error);
     return [
       { title: "エルデンリング", reason: "オープンワールドの金字塔として今なお圧倒的な人気を誇ります。" },
       { title: "バルダーズ・ゲート3", reason: "究極のロールプレイング体験を提供し、世界中で絶賛されています。" },
