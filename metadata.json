@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Lumina Gaming Portal",
+  "description": "A high-end gaming media platform featuring AI-powered insights, real-time news summaries, and an interactive gaming assistant powered by Gemini 3.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
