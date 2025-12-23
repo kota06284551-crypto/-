@@ -5,6 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lumina Gaming | 次世代ゲームメディア</title>
+    <script>
+      /**
+       * CRITICAL SHIM: Netlify等のブラウザ環境で 'process is not defined' エラーを防ぐ
+       * SDKがロードされる前に実行する必要があります。
+       */
+      window.process = {
+        env: {
+          API_KEY: "" 
+        },
+        cwd: () => "/",
+        browser: true
+      };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -33,34 +46,23 @@
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
+    "react": "https://esm.sh/react@19?bundle",
+    "react-dom": "https://esm.sh/react-dom@19?bundle",
+    "react-dom/client": "https://esm.sh/react-dom@19/client?bundle",
+    "react-router-dom": "https://esm.sh/react-router-dom@7?bundle",
+    "@google/genai": "https://esm.sh/@google/genai@0.21.0?bundle",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react-dom": "https://esm.sh/react-dom@^19.2.3",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
-<script>
-  /**
-   * Shim for process.env
-   * Netlify環境や他のホスティング環境で、process未定義エラーによる
-   * ホワイトアウトを防ぐための安全な初期化
-   */
-  window.process = window.process || {};
-  window.process.env = window.process.env || {};
-  if (typeof window.process.env.API_KEY === 'undefined') {
-    window.process.env.API_KEY = "";
-  }
-</script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+    <!-- index.tsx へのパスは、プロジェクト構造に合わせて ./ を付与 -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
